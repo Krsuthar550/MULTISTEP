@@ -1,22 +1,21 @@
-import logo from './logo.svg';
+
+import React,{useContext} from 'react';
 import './App.css';
+import Multistep from './component/Multistep';
+import Viewdata from './component/Viewdata';
+import { Steps } from './Main';
 
 function App() {
+ const { userData } =useContext(Steps)
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       <Multistep/>
+       {userData.length >=0 ? <Viewdata/>:''}
+       {/* <Viewdata/> */}
+
+       
       </header>
     </div>
   );
